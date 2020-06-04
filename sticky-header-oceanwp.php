@@ -29,7 +29,7 @@ class sticky_header_oceanwp {
 	function init_stickyheader(){
 		
 		// LOAD PLUGIN LANGUAGE TRANSLATION FILES
-		$this->stickyheader_load_textdomain();
+		$this->stickyheader_load_translations();
 		
 		// LOAD PLUGIN SCRIPTS AND STYLES
 		add_action( 'wp_enqueue_scripts', array( $this, 'stickyheader_load_assets' ) );
@@ -52,7 +52,7 @@ class sticky_header_oceanwp {
 		
 	}
 	
-	function stickyheader_load_textdomain() {
+	function stickyheader_load_translations() {
 		load_plugin_textdomain( 'sticky-header-oceanwp', false, basename( dirname( __FILE__ ) ) . '/languages' ); 
 	}
 	/* FRONT HANDLER END */
