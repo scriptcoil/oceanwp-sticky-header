@@ -2,11 +2,11 @@
 /**
  * Plugin Name:			Sticky Header OceanWP
  * Description:			Want a new fresh sticky header like everyone else, with our plugin you can get the best and better sticky header that you ever seen
- * Version:				1.0.5
+ * Version:				1.0.6
  * Author:				Oren Hahiashvili
  * Author URI:			https://www.script.co.il
  * Requires at least:	3.5.0
- * Tested up to:		4.9.8
+ * Tested up to:		5.4.1
  *
  * Text Domain: sticky-header-oceanwp
  * Domain Path: /languages/
@@ -18,28 +18,47 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-add_action('wp_head', function(){
-    echo '<script>var sticky_header_style = "'. get_option('oceanwp_header_style') .'";</script>';
-});
-add_action('wp_enqueue_scripts', function(){
-        wp_enqueue_style( 'sticky-header-oceanwp-style', plugin_dir_url( __FILE__ ) . '/style.css', '1.0.0' );
-        wp_enqueue_script( 'sticky-header-oceanwp', plugin_dir_url( __FILE__ ) . '/main.js', array( 'jquery' ), '1.0.0' );
-});
-
-
 class sticky_header_oceanwp {
 
 	function __construct() {
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
-		add_action( 'init', array( $this, 'myplugin_load_textdomain' ) );
+		add_action( 'init', array( $this, 'init_stickyheader' ) );
 	}
 
-	
-	function myplugin_load_textdomain() {
-		load_plugin_textdomain( 'sticky-header-oceanwp', false, basename( dirname( __FILE__ ) ) . '/languages' ); 
+	/* FRONT HANDLER START */
+	function init_stickyheader(){
+		
+		// LOAD PLUGIN LANGUAGE TRANSLATION FILES
+		$this->stickyheader_load_textdomain();
+		
+		// LOAD PLUGIN SCRIPTS AND STYLES
+		add_action( 'wp_enqueue_scripts', array( $this, 'stickyheader_load_assets' ) );
+		
+		// OUTPUT BY SCRIPT VALUES STICKY HEADER STYLING TYPE
+		add_action( 'wp_head', array( $this, 'stickyheader_output_style' ) );
+
 	}
 	
+	function stickyheader_output_style(){
+		
+		echo '<script>var sticky_header_style = "'. get_option('oceanwp_header_style') .'";</script>';
+		
+	}
 	
+	function stickyheader_load_assets(){
+		
+        wp_enqueue_style( 'sticky-header-oceanwp-style', plugin_dir_url( __FILE__ ) . '/style.css', '1.0.0' );
+        wp_enqueue_script( 'sticky-header-oceanwp', plugin_dir_url( __FILE__ ) . '/main.js', array( 'jquery' ), '1.0.0' );
+		
+	}
+	
+	function stickyheader_load_textdomain() {
+		load_plugin_textdomain( 'sticky-header-oceanwp', false, basename( dirname( __FILE__ ) ) . '/languages' ); 
+	}
+	/* FRONT HANDLER END */
+	
+	
+	/* ADMIN HANDLER START */
 	function admin_menu() {
 		add_options_page(
 			'Ocean Theme Sticky Header',
@@ -53,7 +72,7 @@ class sticky_header_oceanwp {
 		);
 	}
 
-	function  settings_page() {
+	function settings_page() {
 	    
 		$sticky_header_styles = array(
 		    'float',
@@ -84,6 +103,9 @@ class sticky_header_oceanwp {
 		
 		<?php
 	}
+	/* ADMIN HANDLER END */
+	
+	
 }
 
 new sticky_header_oceanwp;
