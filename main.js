@@ -13,7 +13,10 @@ jQuery(document).ready(function($){
     		var site_header = $('#site-header');
     		var wpadmin_height = $('#wpadminbar').css('position') == 'fixed' && $('#wpadminbar').height() > 0 ? $('#wpadminbar').height() : 0;
     		var top_bars = $('#wpadminbar').css('position') == 'fixed' ? $('#top-bar-wrap').height() : $('#top-bar-wrap').height() + $('#wpadminbar').height();
-    		console.log(top_bars);
+    		if (Number.isNaN(top_bars)){
+    			top_bars = $('#top-bar-wrap').height();
+    		}
+			console.log(top_bars);
     		var header_status = $(window).scrollTop() >= top_bars;
     		var header_padding = site_header.height();
 	        
