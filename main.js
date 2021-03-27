@@ -16,8 +16,7 @@ jQuery(document).ready(function($){
     		if (Number.isNaN(top_bars)){
     			top_bars = $('#top-bar-wrap').height();
     		}
-			console.log(top_bars);
-    		var header_status = $(window).scrollTop() >= top_bars;
+			var header_status = $(window).scrollTop() >= top_bars;
     		var header_padding = site_header.height();
 	        
     	    if (style == 'float'){
