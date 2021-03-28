@@ -6,7 +6,7 @@
  * Author:				Oren Hahiashvili
  * Author URI:			https://www.script.co.il
  * Requires at least:	3.5.0
- * Tested up to:		5.4.1
+ * Tested up to:		5.7
  * Text Domain: sticky-header-oceanwp
  * Domain Path: /languages/
  */
