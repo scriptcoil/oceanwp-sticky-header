@@ -28,7 +28,7 @@ jQuery(document).ready(function($){
 					'position': 'fixed',
 					'top': wpadmin_height,
 					'width': '100%',
-					'z-index': '99999',
+					'z-index': '998',
 				});
 				site_header.next().css('margin-top', header_padding);
 			}	
@@ -48,7 +48,7 @@ jQuery(document).ready(function($){
     				'position': 'fixed',
     				'top': wpadmin_height,
     				'width': '100%',
-    				'z-index': '99999',
+    				'z-index': '998',
     			});
     			site_header.next().css('margin-top', header_padding);
                 $('body').addClass('fixed_sticky_active');
