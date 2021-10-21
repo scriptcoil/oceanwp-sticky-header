@@ -1,11 +1,11 @@
-=== Oceanwp sticky header ===
+# Oceanwp sticky header
 Contributors: scriptcoil
 Tags: Oceanwp, sticky, header, navigation, menu
 Requires at least: 3.5.0
-Tested up to: 5.7
+Tested up to: 5.8
 License: GPLv2 or later
 
-# Description
+== Description ==
 ### Easy Sticky header installation
 Activate the plugin, and the sticky header will start to work right away.
 
@@ -29,4 +29,3 @@ Currently, there are two different styles.
 We can deactivate the plugin from the plugins page under the administator's menu.
 
 Dont forget to share with friends and rate ♥
-
