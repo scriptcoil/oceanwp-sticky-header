@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.8] - 2021-10-22
+## Bug fix
+- Fixed bug support all oceanwp demo templates as well
+
 ## [1.0.7] - 2021-10-22
 ### Support WordPress 5.8
 - Supporting until the latest version of WordPress 5.8

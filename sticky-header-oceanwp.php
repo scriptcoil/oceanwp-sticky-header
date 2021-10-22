@@ -2,7 +2,7 @@
 /**
  * Plugin Name:			Sticky Header OceanWP
  * Description:			Want a new fresh sticky header like everyone else, with our plugin you can get the best and better sticky header that you ever seen
- * Version:				1.0.7
+ * Version:				1.0.8
  * Author:				Oren Hahiashvili
  * Author URI:			https://www.script.co.il
  * Requires at least:	3.5.0
